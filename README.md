@@ -8,22 +8,22 @@ You can use either, yarn or npm.
 ``` bash
 # install dependencies
 npm install
-*or*
+# or
 yarn install
 
 # serve with hot reload at localhost:8080
 npm run dev
-*or*
+# or
 yarn run dev
 
 # build for production with minification
 npm run build
-*or*
+# or
 yarn run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-*or*
+# or
 yarn run build --report
 ```
 
