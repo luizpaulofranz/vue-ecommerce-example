@@ -1,3 +1,4 @@
+<!--Deprecated-->
 <template>
   <div>
     <div class="title">
