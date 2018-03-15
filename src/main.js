@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 // Esse é um plugin para Vue, plugins estendem as funcionalidades globais do Vue 
 import VeeValidate from 'vee-validate'
+import store from './store'
 
 Vue.config.productionTip = false
 // assim registramos, ou instalamos o plugin
@@ -14,6 +15,7 @@ Vue.use(VeeValidate);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'
