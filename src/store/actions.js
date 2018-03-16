@@ -10,7 +10,9 @@
 // Axios eh um cliente http para JS baseado em promises
 import axios from 'axios'
 // URL da nossa API
-const API_BASE = '<API-URL/api/vi>'
+//const API_BASE = '<API-URL/api/vi>'
+//const API_BASE = 'https://scotch-vue-shop-api.herokuapp.com/api/v1'
+const API_BASE = 'http://localhost:9000/api/v1'
 
 import {
   ADD_PRODUCT,

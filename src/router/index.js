@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // dentro de pages ficam componentes que normalmente nao sao reutilizados, como as paginas
-import Home from '@/components/pages/Home'
+import Home from '@/pages/Home'
 // import Admin from '@/components/pages/Admin'
-import Cart from '@/components/pages/Cart'
+import Cart from '@/pages/Cart'
+
+import Details from '@/components/product/ProductDetail'
 
 // Sub Componentes do Admin
-import Index from '@/components/pages/admin/Index'
-import New from '@/components/pages/admin/New'
-import Products from '@/components/pages/admin/Products'
-import Edit from '@/components/pages/admin/Edit'
+import Index from '@/pages/admin/Index'
+import New from '@/pages/admin/New'
+import Products from '@/pages/admin/Products'
+import Edit from '@/pages/admin/Edit'
 
 // registramos o router declarado abaixo
 Vue.use(Router)
@@ -54,6 +56,11 @@ export default new Router({
       path: '/cart',
       name: 'Cart',
       component: Cart
+    },
+    {
+      path: '/details/:id',
+      name: 'Details',
+      component: Details
     }
   ]
 })
