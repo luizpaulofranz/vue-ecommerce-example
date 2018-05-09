@@ -1,7 +1,8 @@
-// ./src/store/index
 import Vue from 'vue'
 // plugin para gerenciar os estados de nossos componentes, de forma global
 import Vuex from 'vuex'
+
+// import { normalize } from 'normalizr'
 
 // Os getters dessa classe estao definidos nessas outras classes
 import { productGetters, manufacturerGetters } from './getters'
@@ -13,22 +14,16 @@ import { productActions, manufacturerActions } from './actions'
 Vue.use(Vuex)
 /* Representação global dos estados dos nossos componentes */
 export default new Vuex.Store({
-    strict: true,
-    state: {
-      // bought items
-      cart: [],
-      // ajax loader
-      showLoader: false,
-      // selected product
-      product: {},
-      // all products
-      products: [],
-      // all manufacturers
-      manufacturers: [],
-      // Assim declaramos getters, mutations e actions
-      getters: Object.assign({}, productGetters, manufacturerGetters),
-      mutations: Object.assign({}, productMutations, cartMutations, manufacturerMutations),
-      actions: Object.assign({}, productActions, manufacturerActions)
-    }
-  })
-  
+  strict: true,
+  state: {
+    cart: [],
+    showLoader: false,
+    product: {},
+    products: [],
+    manufacturers: []
+  },
+  // Assim declaramos getters, mutations e actions
+  mutations: Object.assign({}, productMutations, cartMutations, manufacturerMutations),
+  getters: Object.assign({}, productGetters, manufacturerGetters),
+  actions: Object.assign({}, productActions, manufacturerActions)
+})

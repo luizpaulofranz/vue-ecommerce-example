@@ -33,6 +33,7 @@
 import toastr from 'toastr'
 
 import {
+  ERROR_MSG,
   ADD_PRODUCT_SUCCESS,
   UPDATE_PRODUCT_SUCCESS,
   REMOVE_PRODUCT_SUCCESS
@@ -50,6 +51,9 @@ export default {
     this.$store.subscribe((mutation) => {
       if (mutation.payload) {
         switch (mutation.type) {
+          case ERROR_MSG:
+            toastr.error(mutation.payload.content, mutation.payload.title)
+            break
           case ADD_PRODUCT_SUCCESS:
             toastr.success('Product created.', 'Success!')
             break
@@ -85,6 +89,7 @@ export default {
     width: 100%;
     height: 100%;
   }
+
   .loading-spinner {
     position : absolute;
     top      : 50%;
@@ -93,6 +98,7 @@ export default {
     -moz-transform : translateX(-50%) translateY(-50%);
     transform : translateX(-50%) translateY(-50%);
   }
+
   .dot {
     background    : black;
     border-radius : 100%;
@@ -102,6 +108,7 @@ export default {
     text-align    : center;
     width         : 8px;
   }
+
   .dotOne {
     -webkit-animation : dotOneKeyframes 5s ease  infinite;
     background        : #F9E610;
@@ -109,6 +116,7 @@ export default {
     top               : 0;
     left              : 0;
   }
+
   .dotTwo {
     -webkit-animation : dotTwoKeyframes 5s ease 0.4166666666666s infinite;
     background        : #EFDB06;
@@ -116,6 +124,7 @@ export default {
     top               : 0;
     left              : 14px;
   }
+
   .dotThree {
     -webkit-animation : dotThreeKeyframes 5s ease 0.83333333333s infinite;
     background        : #DBC906;
@@ -123,6 +132,7 @@ export default {
     top               : 14px;
     left              : 14px;
   }
+
   @-webkit-keyframes dotOneKeyframes {
     0% {
       top  : 0;
@@ -133,6 +143,7 @@ export default {
       left : 0;
     }
     16.6666666666% {
+
     }
     25% {
       top  : 14px;
@@ -143,6 +154,7 @@ export default {
       left : 14px;
     }
     41.6666666666% {
+
     }
     50% {
       top  : 14px;
@@ -153,6 +165,7 @@ export default {
       left : 14px;
     }
     66.6666666666% {
+
     }
     75% {
       top  : 0;
@@ -163,10 +176,14 @@ export default {
       left : 0;
     }
     91.6666666666% {
+
     }
     100% {
+
     }
   }
+
+
   @-webkit-keyframes dotTwoKeyframes {
     0% {
       top  : 0;
@@ -187,6 +204,7 @@ export default {
       left : 0;
     }
     41.6666666666% {
+
     }
     50% {
       top  : 14px;
@@ -197,6 +215,7 @@ export default {
       left : 14px;
     }
     66.6666666666% {
+
     }
     75% {
       top  : 14px;
@@ -207,10 +226,13 @@ export default {
       left : 14px;
     }
     91.6666666666% {
+
     }
     100% {
+
     }
   }
+
   @-webkit-keyframes dotThreeKeyframes {
     0% {
       top  : 14px;
@@ -221,6 +243,7 @@ export default {
       left : 14px;
     }
     16.6666666666% {
+
     }
     25% {
       top  : 0;
@@ -231,6 +254,7 @@ export default {
       left : 0;
     }
     41.6666666666% {
+
     }
     50% {
       top  : 0;
@@ -241,6 +265,7 @@ export default {
       left : 0;
     }
     66.6666666666% {
+
     }
     75% {
       top  : 14px;
@@ -251,8 +276,10 @@ export default {
       left : 14px;
     }
     91.6666666666% {
+
     }
     100% {
+
     }
   }
 </style>

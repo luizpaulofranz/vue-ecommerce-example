@@ -49,6 +49,7 @@
         <label>Imagem</label>
         <input
           type="text"
+          class="form-control"
           placeholder="Image"
           v-model="model.image"
           v-validate="'required|url'"
@@ -60,6 +61,7 @@
         <label>Descrição</label>
         <textarea
           type="number"
+          class="form-control"
           placeholder="Description"
           rows="5"
           v-model="model.description"
@@ -82,6 +84,9 @@
 </template>
 
 <script>
+  import {
+    ERROR_MSG
+  } from '../../store/mutation-types'
   export default {
     // essas sao as propriedades passadas para dentro da tag deste componente
     props: ['model', 'manufacturers', 'isEditing'],
@@ -89,7 +94,16 @@
     },
     methods: {
       saveProduct () {
-        this.$emit('save-product', this.model)
+        //console.log(this.fields.valid())
+        this.$validator.validateAll().then(() => {
+          this.$emit('save-product', this.model)
+        }).catch(() => {
+          this.$store.commit(ERROR_MSG, {
+            type: 'error',
+            title: 'Validation!',
+            content: 'Please ensure the form is valid.'
+          })
+        })
       }
     }
   }
