@@ -6,33 +6,30 @@
 </template>
 
 <script>
-  import ProductFrom from '@/components/product/ProductForm.vue'
-
+  import ProductFrom from '../../components/product/ProductForm.vue'
   export default {
     data () {
       return {
-        // quando eh New, a model vai vazia
-        model: {},
-        // carregamos a lista de fabricantes
-        manufacturers: [
-          {
-            _id: 'sam',
-            name: 'Samsung',
-          },
-          {
-            _id: 'apple',
-            name: 'Apple',
-          },
-        ],
+	// new vem com model vazia
+        model: {}
+      }
+    },
+    created () {
+      this.$store.dispatch('allManufacturers')
+    },
+    computed: {
+      manufacturers () {
+        return this.$store.getters.allManufacturers
       }
     },
     methods: {
       addProduct (model) {
         console.log('model', model)
+        this.$store.dispatch('addProduct', model)
       }
     },
-    // definimos um nome para o nosso componente ProductFrom importado
     components: {
+      // definimos um nome para o componente importado
       'product-form': ProductFrom
     }
   }

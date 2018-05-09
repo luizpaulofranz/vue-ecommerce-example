@@ -1,12 +1,12 @@
 <template>
   <div>
-    <product-details :product="product" :isAdding="true" ></product-details>
+    <product-details :product="product" :isAdding="true"></product-details>
   </div>
 
 </template>
 
 <script>
-  import ProductDetails from '../components/product/ProductDetails'
+  import ProductDetails from '../components/product/ProductDetail'
   export default {
     created () {
       if (!this.product.name) {
@@ -16,6 +16,11 @@
     computed: {
       product () {
         return this.$store.getters.productById(this.$route.params['id'])
+      }
+    },
+    data () {
+      return {
+//        product: this.$store.getters.productById(this.$route.params['id'])
       }
     },
     components: {

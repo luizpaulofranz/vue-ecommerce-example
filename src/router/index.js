@@ -5,7 +5,7 @@ import Home from '@/pages/Home'
 // import Admin from '@/components/pages/Admin'
 import Cart from '@/pages/Cart'
 
-import Details from '@/components/product/ProductDetail'
+import Details from '@/pages/Details'
 
 // Sub Componentes do Admin
 import Index from '@/pages/admin/Index'
